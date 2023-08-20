@@ -1,0 +1,23 @@
+@mixin flex($dir,$align,$gap){
+    display: flex;
+    flex-direction: $dir;
+    align-items: center;
+    justify-content: $align;
+    padding: 0 2%;
+    gap: $gap;
+}
+
+@mixin anchor{
+    text-decoration: none;
+    color: black;  
+}
+
+@mixin navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2%;
+    height: 100px;
+    color: white;
+}

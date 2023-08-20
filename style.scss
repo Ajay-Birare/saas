@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Import the "flex" file here
+@import "flex";
+
+.main {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+    .img {
+        height: 100px;
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        z-index: -99;
+        filter: blur(120px);
+    }
+
+    nav {
+        @include navbar();
+        background-color: #1b40a3;
+
+        .left{
+            h1{
+                font-size: 2rem;
+                font-family:'Courier New', Courier, monospace;
+            }
+        }
+
+        .right {
+            @include flex(row, space-between, 20px);
+            a {
+                @include anchor();
+                color: white;
+                &:hover {
+                    color: rgb(48, 229, 78);
+                }
+            }
+        }
+    }
+
+    .content{
+        // background-color: red;
+        height: calc(100% - 100px);
+        width: 100%;
+        @include flex(row,space-around,20px);
+        .div1{
+            width: 30%;
+            h1{
+                font-size: 3rem;
+                color: white;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                animation: change 2s linear 0.5s infinite alternate;
+            }
+
+            @keyframes change {
+                from{
+                    color: blue;
+                }
+                to{
+                    color: white;
+                }
+                
+            }
+        }
+        .div2{
+            // width: 50%;
+            display: grid;
+            grid-template-columns: 300px 200px;
+            grid-template-rows: 200px 100px;
+            gap: 30px;
+        img{
+            height: 200px;
+            width: 300px;
+            animation: effect 5s linear 2s infinite alternate;
+        }
+
+        @keyframes effect {
+            from{
+                // filter: blur(0x);  
+                transform: scale(1);
+            }
+            to{
+                // filter: blur(20px);
+                transform: scale(1.2);
+            }
+
+        }
+    }
+    }
+}
